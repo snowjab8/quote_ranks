@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> Quotes </title>
+</head>
+<body>
+  <h1> Welcome to Quote 101 </h1>
+  <h2> Add a Quote </h2>
+  <form (submit)='createQuote()'>
+    <p> {{ quote | json }} </p>
+    <input type='text' value='Quote goes here' name='quote' [(ngModel)]='quote.quote'>
+    <label for='author'> Author: </label>
+    <input type='text' name='author' [(ngModel)]='quote.author'>
+    <button> Add Quote </button>
+  </form>
+  <h2> Quotes List </h2>
+  <div *ngFor='let quote of quotes' class='quote_container'>
+    {{ quote.quote }} 
+    <p> By {{ quote.author }} </p>
+    <p> {{ quote.votes }} </p>
+    <p><a href="#" (click)='voteUp(quote._id)'> Vote up</a></p>
+    <p><a href="#" (click)='voteDown(quote._id)'> Vote down</a></p>
+    <p><a href="#" (click)='deleteQuote(quote._id)'> Delete </a></p>
+  </div>
+</body>
+</html>

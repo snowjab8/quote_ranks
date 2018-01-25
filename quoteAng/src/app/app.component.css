@@ -1,0 +1,9 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.quote_container {
+    display: flex;
+    justify-content: space-around;
+}
